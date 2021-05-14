@@ -69,16 +69,16 @@ Crie uma função com as seguintes características:
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
 function duplaAcao(a,b,c){
-	if( a != null && b == null && c == null){
+	if( a !== undefined && b === undefined && c === undefined){
 		return a;
 	}
-	if( a != null && b != null && c == null){
+	if( a !== undefined && b !== undefined && c === undefined){
 		return a + b;
 	}
-	if( a != null && b != null && c != null){
+	if( a !== undefined && b !== undefined && c !== undefined){
 		return (a + b) / c;
 	}
-	if( a == null && b == null && c == null){
+	if( a === undefined  && b === undefined && c === undefined){
 		return false;
 	}
 	return null;	
