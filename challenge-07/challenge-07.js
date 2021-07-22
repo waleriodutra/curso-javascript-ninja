@@ -35,20 +35,32 @@ console.log('O primeiro array tem ' + arr.length + ' itens.');
 Agora mostre no console quantos itens tem o segundo array criado, com a frase:
 "O segundo array tem [QUANTIDADE DE ITENS] itens."
 */
-// ?
+var cont = arr.length;
+console.log('O segundo array tem ' + arr[cont - 1].length + ' itens.');
+
 
 /*
 Utilizando a estrutura de repetição `while`, mostre no console todos os números
 pares entre 10 e 20, inclusive esses 2.
 */
 console.log( 'Números pares entre 10 e 20:' );
-// ?
+var repete = 9;
+while (repete++ < 20){
+    if(repete % 2 === 0){
+        console.log(repete);
+    }
+}
 
 /*
 Na mesma ideia do exercício acima: mostre agora os números ímpares.
 */
 console.log( 'Números ímpares entre 10 e 20:' );
-// ?
+var repete = 9;
+while (repete++ < 20){
+    if(repete % 2 > 0){
+        console.log(repete);
+    }
+}
 
 /*
 Repita os mesmos exercícios feitos acima, mas agora usando o loop "for".
@@ -57,7 +69,15 @@ Só vamos mudar o range:
 - No segundo "for", mostre os números ímpares entre 111 e 125, inclusive eles.
 */
 console.log( 'Números pares entre 100 e 120:' );
-// ?
+for (var intera = 100; intera <= 120; intera++){
+    if (intera % 2 === 0){
+        console.log(intera);
+    }
+}
 
 console.log( 'Números ímpares entre 111 e 125:' );
-// ?
+for (var intera = 100; intera <= 120; intera++){
+    if (intera % 2 > 0){
+        console.log(intera);
+    }
+}
