@@ -33,14 +33,14 @@ function showName(){
 /*
 Declare uma variável chamada `varShowName` que recebe a função criada acima.
 */
-var varShowName = showName();
+var varShowName = showName;
 
 /*
 Usando a variável criada acima, mostre no console o nome e o retorno da função
 atribuída a ela, com a seguinte frase:
 "A função [NOME DA FUNÇÃO] retorna [RETORNO DA FUNÇÃO]."
 */
-console.log('A função ' + showName.name + ' retorna '  + varShowName + '.');
+console.log('A função ' + varShowName.name + ' retorna '  + varShowName() + '.');
 
 /*
 Crie uma função literal chamada `calculator`, que funcione assim:
@@ -77,7 +77,7 @@ function calculator(operacao){
         return 'Operação inválida.';
     }
     return 'Resultado da operação: ' + x + ' ' + operacao + ' ' + y + ' = ' + resultado + '.';
-  }
+  };
 }
 /*
 Declare uma variável chamada `sum`, que receberá a função acima, passando como
@@ -88,7 +88,7 @@ var sum = calculator('+');
 /*
 Agora `sum` é uma função. Mostre no console a soma de dois números, usando ela.
 */
-console.log(sum(2,6));
+console.log(sum(2,6))
 
 /*
 Agora, declare algumas variáveis com os nomes `subtraction`, `multiplication`,
