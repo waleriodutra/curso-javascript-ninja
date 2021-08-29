@@ -52,7 +52,7 @@
     - Se for igual a qualquer um desses, ela deverá retornar "true".
     Caso contrário, "false".
     - O desafio é fazer o retorno sem usar "if" ou "switch".
-    */
+        */
     function isOperatorValid(operador){
         return (operador === '+' || operador === '-' ||operador === '*' || 
                     operador === '/' ||operador === '%');
