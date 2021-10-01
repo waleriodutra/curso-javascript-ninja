@@ -1,90 +1,124 @@
+//(
 /*
 Envolva todo o código desse desafio em uma IIFE.
 */
+
 
 /*
 Crie um array e mostre no console a representação em String desse array,
 usando o método visto na aula 13.
 */
 console.log( 'O array em formato de string é:' );
-// ?
+var aulatreze = [1,2,3,4,5,6,7,8,9];
+console.log(aulatreze.toString());
 
 /*
 Crie 2 arrays `sul` e `sudeste`, que serão as regiões do Brasil.
 Cada array deve conter os estados dessa região.
 */
-// ?
+var sul = [];
+sul.push('RS');
+sul.push('SC');
+sul.push('PR');
+
+var sudeste = ['MG', 'ES', 'RJ', 'SP'];
 
 /*
 Crie uma variável chamada `brasil`, que irá receber as duas regiões
 concatenadas. Mostre o `brasil` no console.
 */
 console.log( '\nAlguns Estados do Brasil:' );
-// ?
+var brasil = sul.concat(sudeste);
+console.log(brasil);
 
 /*
 Adicione 3 novos estados da região Norte no início do array e mostre no console.
 */
 console.log( '\nMais estados adicionados:' );
-// ?
+brasil.unshift('AM', 'RO', 'AC');
+console.log(brasil);
 
 /*
 Remova o primeiro estado do array `brasil` e mostre-o no console.
 */
 console.log( '\nEstado removido:' );
-// ?
+console.log(brasil.shift());
 
 /*
 Crie um novo array chamado `newSul`, que receba somente os estados do sul,
 pegando do array `brasil`. Não remova esses itens de `brasil`.
 */
-// ?
+var retorno = [];
+var newSul = brasil.map(function(item){
+    return item;
+}).filter(function(item){
+    return item === 'RS' || item === 'SC' || item === 'PR';
+});
 
 /*
 Mostre no console os estados que estão em `newSul`.
 */
 console.log( '\nEstados do Sul do Brasil:' );
-// ?
+console.log(newSul);
 
 /*
 Mostre no console todos os estados que estão em `brasil`.
 */
 console.log( '\nAlguns Estados do Brasil:' );
-// ?
+console.log(brasil);
 
 /*
 Crie um novo array chamado `nordeste`, que tenha os estados do nordeste.
 */
-// ?
+var nordeste = [];
+nordeste.unshift('BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA');
 
 /*
 Mostre no console os estados do nordeste.
 */
 console.log( '\nEstados do Nordeste:' );
-// ?
+console.log(nordeste);
 
 /*
 Remova de `brasil` os estados do `sudeste`, colocando-os em uma variável
 chamada `newSudeste`.
 */
-// ?
+var cont = [];
+var retorno = [];
+brasil.forEach(function(item, index){
+    for (var i = 0 ; i < sudeste.length ; i++){
+        if (sudeste[i] === item){
+            cont.push(index);
+            retorno.push(item);
+        }
+    }
+});
+cont.reverse().forEach(function(item){
+    brasil.splice(item, 1);
+});
+var newSudeste = retorno;
+
+//})
+
+
 
 /*
 Adicione os estados do `nordeste` ao array `brasil`. Esses estados devem
 ficar no mesmo nível que os estados já existentes, não em um array separado.
 */
-// ?
+brasil = brasil.concat(sul);
 
 /*
 Mostre no console os estados em `newSudeste`.
 */
 console.log( '\nEstados em newSudeste:' );
-// ?
+console.log(newSudeste);
 
 /*
 Mostre no console os estados do `brasil`.
 */
 console.log( '\nAlguns estados do Brasil:' );
+console.log(brasil);
 // ?
 
 /*
@@ -148,3 +182,11 @@ Mostre o array filtrado acima no console.
 */
 console.log( '\nEstados com ID par:' );
 // ?
+var arr = [100, 101, 102, 103, 900, 901, 902, 802, 803, 804];
+var map = arr.map(function(item, index){
+    return item - (index * index);
+}).filter(function(item){
+    return item % 2 !== 0;
+}) ;
+console.log(map);
+//)();'
