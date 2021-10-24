@@ -48,12 +48,14 @@ console.log(brasil.shift());
 Crie um novo array chamado `newSul`, que receba somente os estados do sul,
 pegando do array `brasil`. Não remova esses itens de `brasil`.
 */
-var retorno = [];
-var newSul = brasil.map(function(item){
-    return item;
-}).filter(function(item){
+/* forma 01 - Corrteta tbm
+var newSul = brasil.filter(function(item){
     return item === 'RS' || item === 'SC' || item === 'PR';
 });
+*/
+/* forma 02 - Solicitada na aula usando slice */
+var newSul = brasil.slice(2, 5);
+
 
 /*
 Mostre no console os estados que estão em `newSul`.
@@ -83,6 +85,7 @@ console.log(nordeste);
 Remova de `brasil` os estados do `sudeste`, colocando-os em uma variável
 chamada `newSudeste`.
 */
+/* Forma 01 - trabalhosa
 var cont = [];
 var newSudeste = [];
 brasil.forEach(function(item, index){
@@ -96,6 +99,9 @@ brasil.forEach(function(item, index){
 cont.reverse().forEach(function(item){
     brasil.splice(item, 1);
 });
+*/
+/* Forma 02 - mais limpa e solicitada na aula */
+var newSudeste = brasil.splice( 5, 4);
 
 /*
 Adicione os estados do `nordeste` ao array `brasil`. Esses estados devem
@@ -105,7 +111,7 @@ brasil = brasil.concat(nordeste);
 
 /*
 Mostre no console os estados em `newSudeste`.
-*/
+*/  
 console.log( '\nEstados em newSudeste:' );
 console.log(newSudeste);
 
@@ -169,7 +175,7 @@ objeto desse array, e adicione a frase abaixo na propriedade `estado`:
 Atribua o novo array a uma variável chamada `map`.
 */
 var map = newBrasil.map(function(item){
-    return {id: item.id + 1, estado: item.estado.concat(" pertence ao Brasil.")};
+    return {id: item.id + 1, estado: item.estado.concat(' pertence ao Brasil.')};
 });
 
 /*
