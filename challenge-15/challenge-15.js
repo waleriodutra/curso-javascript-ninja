@@ -26,7 +26,20 @@ function Person(name, lastName, age){
   this.name = name;
   this.lastName = lastName;
   this.age = age;
+  this.getFullName = function getFullName(){
+    return this.name + ' ' + this.lastName;
+  };
+  this.getAge = function getAge(){
+    return this.age;
+  };
+  this.addAge = function addAge(){
+    this.age = parseInt(this.age) + arguments[0];
+    return this ;
+  };
 }
+
+/* 
+Deveria criar metodos do construtor
 
 function getFullName(person){
   return person.name + ' ' + person.lastName;
@@ -39,6 +52,7 @@ function getAge(person){
 function addAge(person, age){
   return parseInt(person.age) + parseInt(age);
 }
+*/
 
 
 /*
@@ -59,18 +73,18 @@ console.log(antonio);
 Mostre no console o nome completo de cada pessoa.
 */
 console.log( '\nNomes das pessoas:' );
-console.log(getFullName(tania));
-console.log(getFullName(igor));
-console.log(getFullName(antonio));
+console.log(tania.getFullName());
+console.log(igor.getFullName());
+console.log(antonio.getFullName());
 
 /*
 Mostre no console as idades de cada pessoa, com a frase:
 - "[NOME COMPLETO] tem [IDADE] anos."
 */
 console.log( '\nIdade das pessoas:' );
-console.log(getFullName(tania), 'tem', getAge(tania));
-console.log(getFullName(igor), 'tem', getAge(igor));
-console.log(getFullName(antonio), 'tem', getAge(antonio));
+console.log(tania.getFullName(), 'tem', tania.getAge());
+console.log(igor.getFullName(), 'tem', igor.getAge());
+console.log(antonio.getFullName(), 'tem', antonio.getAge());
 
 /*
 Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
@@ -78,7 +92,7 @@ cada um. A frase deverá ser no formato:
 - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
 */
 console.log( '\nNova idade das pessoas:' );
-console.log(getFullName(tania), 'agora tem', addAge(tania, 2));
-console.log(getFullName(igor), 'agora tem', addAge(igor, 5));
-console.log(getFullName(antonio), 'agora tem', addAge(antonio, 3));
+console.log(tania.getFullName(), 'agora tem', tania.addAge(2).getAge());
+console.log(igor.getFullName(), 'agora tem', igor.addAge(5).getAge());
+console.log(antonio.getFullName(), 'agora tem', antonio.addAge(3).getAge());
 }())
