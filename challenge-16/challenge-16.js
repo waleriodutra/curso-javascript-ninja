@@ -1,4 +1,7 @@
+(function(){
+ 'use strict';       
 /*
+
 1. Envolva todo o conteúdo desse desafio em uma IIFE.
 2. Adicione a diretiva 'use strict';
 3. Crie um arquivo index.html e adicione esse script à ele.
@@ -15,6 +18,10 @@ E assim por diante, até a última.
 */
 console.log( 'As letras do seu nome:' );
 // ?
+var name = 'Antonio';
+for (var i = 0; i < name.length; i++){
+    console.log(name.charAt(i) + ' é a ' + (i + 1) + 'ª letra do meu nome.')
+}
 
 /*
 - Declare uma variável chamada `fullName`, que receba seu nome completo,
@@ -27,9 +34,13 @@ nome, então fique à vontade para usar as artimanhas que já viu até agora no
 curso para fazer isso funcionar corretamente :)
 - Mostre no console o nome no formato slug, e o resultado final. Use um
 console.log para cada formato.
-*/
+*/ 
 console.log( '\nNome convertido à partir de um slug:' );
-// ?
+var fullName = 'igor-pimentel-dutra';
+var fullNameCovertido = fullName.split('-').map(function(item, index){
+    return item.charAt(0).toUpperCase() + item.slice(1)
+}).join(' ');
+console.log('Original:', fullName, '|', 'Convertido:', fullNameCovertido);
 
 /*
 - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
@@ -41,20 +52,37 @@ O resultado final deve ficar mais ou menos assim:
 5 nomes foi somente uma sugestão ;)
 */
 console.log( '\nMeus amigos:' );
-// ?
 
+var friends = ['João', 'Maria', 'Roberto', 'Pedro', 'Marcos'];
+/* Minha versão 
+function botaEh(arr){
+    if (arr.length > 1){
+        var friendsJoin = arr.join(', ');
+        var friendsFix = friendsJoin.slice(0, friendsJoin.lastIndexOf(',')) + ' e' +  friendsJoin.slice(friendsJoin.lastIndexOf(',') + 1);
+        return friendsFix;
+    } else{
+        return arr.toString();
+    }
+};
+console.log(botaEh(friends));
+*/
+var phrase = friends.reduce(function(acumulado, atual, index){
+    var separator = friends.length - 1 === index ? ' e ' : ', ';
+    return acumulado + separator + atual;
+}).concat(' são meus amigos.');
+console.log(phrase);
 /*
 Usando o replace(), faça a string "Roberto" virar "Roberta".
 Mostre o resultado no console.
 */
-console.log( '\nEra "Roberto", agora é:' );
-// ?
+console.log( '\nEra "Roberto", agora é:', 'Roberto'.replace('to', 'ta') );
+
 
 /*
 Mostre no console a parte "nando" da string "Fernando". Use o método que
 faz a busca do final para o início da string.
 */
-console.log( '\nParte de uma string:' );
+console.log( '\nParte de uma string:', 'Fernando'.substring(8,3));
 // ?
 
 /*
@@ -67,4 +95,18 @@ de qualquer tamanho, escrito de qualquer forma.
 Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
 console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-// ?
+var myName = 'Antonio';
+
+function alterarLetras(str){
+    var auxiliar = '';
+    for (var i = 0; i < str.length; i++){
+        if (i % 2 === 0 ){
+            auxiliar += str.charAt(i).toUpperCase();
+        }else{
+            auxiliar += str.charAt(i).toLowerCase();
+        }
+    }
+    return auxiliar;
+};
+console.log(alterarLetras(myName));
+}())
